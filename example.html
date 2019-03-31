@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="page-notifications.css">
+        <script src="page-notifications.js"></script>
+    </head>
+
+    <body style="background: white;">
+        <button onclick="pushInfo()">Info</button></br>
+        <button onclick="pushSuccess()">Success</button></br>
+        <button onclick="pushWarning()">Warning</button></br>
+        <button onclick="pushError()">Error</button></br>
+        <button onclick="closeAll()">Close all</button></br>
+    </body>
+
+    <script>
+    var notifications = new PageNotifications()
+
+    function pushInfo() {
+        notifications.push("Information notification","Longer information notification.</br> ... </br> ... </br> ...","info",false);
+    }
+    function pushSuccess() {
+        notifications.push("Success notification","Everything went well.","success",false);
+    }
+    function pushWarning() {
+        notifications.push("Warning notification","Warning","warning",false);
+    }
+    function pushError() {
+        notifications.push("Error notification","Error notification for showing for 3 seconds.","error",3000);
+    }
+    function closeAll() {
+        notifications.closeAll();
+    }
+    </script>
+
+</html>
