@@ -2,7 +2,7 @@
 
 Simply library for your page to easily show notifications.
 
-[www.page-notifications.rafalm.com](www.page-notifications.rafalm.com)
+[www.page-notifications.rafalm.com](http://www.page-notifications.rafalm.com)
 
 
 ## Usage
@@ -21,7 +21,7 @@ var notifications = new PageNotifications();
 //or with arguments
 var notifications = new PageNotifications({'theme':'dark','parentDiv':'divId'});
 ```
-Full list of arguments and methods is avaible at documentation: [www.page-notifications.rafalm.com#docs](www.page-notifications.rafalm.com#docs)
+Full list of arguments and methods is avaible at documentation: [www.page-notifications.rafalm.com#docs](http://www.page-notifications.rafalm.com#docs)
 
 Now you can push notifications as you wish:
 
@@ -33,6 +33,6 @@ notifications.push("Title","Content","info",false);
 
 Project build on **MIT** Licence by **Rafał Michałuszek (rafalm99)**
 
-*Website:* [www.rafalm.com](www.rafalm.com)
+*Website:* [www.rafalm.com](http://www.rafalm.com)
 
 
