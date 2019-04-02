@@ -1,6 +1,7 @@
+/*version 1.0.1*/
 #page-notifications-container {
     width: 360px;
-    position: absolute;
+    position: fixed;
 
     bottom: 0px;
     right: 0px;
@@ -35,9 +36,9 @@
 .page-notifications-left {
     width: 30px;
 
-    left: 0;
-    top: 0;
-    bottom: 0;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
 
     position: absolute;
     color: white;
@@ -69,16 +70,16 @@
 
 /*  Title  */
 .page-notifications-right h1 {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     font-size: 16px;
     margin-right: 10px;
     text-align: left;
 }
 /*  Content  */
 .page-notifications-right h2 {
-    padding: 0;
-    margin: 0;
+    padding: 0px;
+    margin: 0px;
     margin-top: 3px;
     font-size: 12px;
 }
@@ -88,10 +89,10 @@
     text-align: right;
     color: #888888;
     font-size: 11px;
-    margin: 0;
+    margin: 0px;
     margin-top: 3px;
     margin-bottom: 3px;
-    padding: 0;
+    padding: 0px;
 }
 
 /*  light  */
@@ -118,7 +119,7 @@
 .page-notifications-close {
     position: absolute;
     right: 5px;
-    top: 0;
+    top: 0px;
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
@@ -146,31 +147,4 @@
     background: #e84118;
     font-size: 1.4em;
     font-weight: 500;
-}
-
-@keyframes notification-showup {
-    0% {
-        height: 0px;
-        animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);;
-    }
-}
-@keyframes notification-hide {
-    100% {
-        height: 0px;
-        margin-top: 0px;
-        animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);;
-    }
-}
-@keyframes notification-timer-animation {
-    0% {
-        opacity: 0;
-    }
-    20% {
-        opacity: 1;
-    }
-    100% {
-        width: 0px;
-        opacity: 1;
-
-    }
 }
