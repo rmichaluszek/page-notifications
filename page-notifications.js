@@ -1,17 +1,27 @@
-/*version 1.0.1*/
-function PageNotifications(args = {}) {
+/*version 1.0.2*/
+function PageNotifications(args = {width:360}) {
     //constructor
-    if(args.theme=="dark")
-        this.theme = "dark";
-    else 
-        this.theme = "light";
 
+    //theme
+    if(args.theme=="dark") {
+        this.theme = "dark";
+    } else {
+        this.theme = "light";
+    }
+    //parent element
     if(args.parentDiv&&document.getElementById(args.parentDiv)) {
         this.parentDiv = document.getElementById(args.parentDiv);
     } else {
         this.parentDiv = document.body;
     }
-    
+    //target width of notifications
+    if(args.width&&!isNaN(args.width)) {
+        this.width = args.width;
+    } else {
+        console.log(this.parentDiv.offsetWidth)
+        this.width = this.parentDiv.offsetWidth;
+    }
+
     this.pageNotifications = [];
     this.lastNotificationIdNumber = 0;
 
@@ -23,6 +33,7 @@ function PageNotifications(args = {}) {
 
     this.container = document.createElement('div');
     this.container.id = 'page-notifications-container';
+    this.container.style.maxWidth = this.width+"px";
     this.parentDiv.appendChild(this.container);
 
     this.update = setInterval(function() {
@@ -42,7 +53,7 @@ function PageNotifications(args = {}) {
     this.push = function(title,content,type,duration) {
         this.lastNotificationIdNumber++;
         var notificationId = "pn"+this.lastNotificationIdNumber;
-        this.pageNotifications.push(new PageNotification(notificationId,title,content,type,duration,this.container,this.theme));
+        this.pageNotifications.push(new PageNotification(notificationId,title,content,type,duration,this.container,this.theme,this.width));
     }   
     this.closeAll = function(){
         for(let id = 0; id < this.pageNotifications.length; id++) {
@@ -51,7 +62,7 @@ function PageNotifications(args = {}) {
     }
 }
 
-function PageNotification(pnId,title,content,type,duration,container,theme) {
+function PageNotification(pnId,title,content,type,duration,container,theme,width) {
     this.pnId = pnId;
     this.title = title;
     this.content = content;
@@ -59,6 +70,7 @@ function PageNotification(pnId,title,content,type,duration,container,theme) {
     this.duration = duration;
     this.durationLeft = duration;
     this.theme = theme;
+    this.width = width;
 
     this.heightScale = 0;  //from 0 to 1, variable used to make animations of showing/hiding
     this.heightCurrentAnimation = 1 // 0 - nothing, 1 - showup, 2 - hide
@@ -81,6 +93,7 @@ function PageNotification(pnId,title,content,type,duration,container,theme) {
 
     this.notification.className = "page-notifications-body"+" page-notifications-"+this.theme+" page-notifications-"+this.type;
     this.notification.setAttribute('notificationid', this.pnId);
+    this.notification.style.maxWidth = this.width+"px";
 
     let left = document.createElement('div');
     left.className = "page-notifications-left";
@@ -192,7 +205,7 @@ function PageNotification(pnId,title,content,type,duration,container,theme) {
                 this.timerCurrentAnimation = 0;
             }
         }
-        this.notification.getElementsByClassName('page-notifications-timer')[0].style.width = this.timerScale*330+"px";
+        this.notification.getElementsByClassName('page-notifications-timer')[0].style.width = this.timerScale*this.width+"px";
     }
 
     this.easeOutQuint = function(t) //source: https://gist.github.com/gre/1650294 
