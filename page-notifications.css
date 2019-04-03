@@ -123,14 +123,19 @@
     color: #aaaaaa;
 }
 
-
 .page-notifications-close {
     position: absolute;
-    right: 5px;
+    right: 3px;
     top: 0px;
     font-size: 18px;
+    padding: 3px;
     font-weight: bold;
     cursor: pointer;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .page-notifications-close:hover {
     opacity: 0.8;
