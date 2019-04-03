@@ -86,8 +86,8 @@ function PageNotification(pnId,title,content,type,duration,container,theme) {
     left.className = "page-notifications-left";
 
     if(type=="success") left.innerHTML = "&#10003";
-    else if(type=="info") left.innerHTML = "&#9432;";
-    else if(type=="warning") left.innerHTML = "&#9888;";
+    else if(type=="info") left.innerHTML = "i";
+    else if(type=="warning") left.innerHTML = "!";
     else if(type=="error") left.innerHTML = "&#215;"
 
     let right = document.createElement('div');
