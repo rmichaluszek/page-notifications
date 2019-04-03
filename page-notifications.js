@@ -205,7 +205,8 @@ function PageNotification(pnId,title,content,type,duration,container,theme,width
                 this.timerCurrentAnimation = 0;
             }
         }
-        this.notification.getElementsByClassName('page-notifications-timer')[0].style.width = this.timerScale*this.width+"px";
+        console.log(this.timerScale);
+        this.notification.getElementsByClassName('page-notifications-timer')[0].style.width = this.timerScale*(this.width-40)+"px";
     }
 
     this.easeOutQuint = function(t) //source: https://gist.github.com/gre/1650294 
