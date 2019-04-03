@@ -186,7 +186,7 @@ function PageNotification(pnId,title,content,type,duration,container,theme) {
             this.timerAnimationProgress += deltaTime
             if(this.timerAnimationProgress>= this.duration) this.timerAnimationProgress = this.duration;
 
-            this.timerScale = 1-this.easeOutQuint(this.timerAnimationProgress/this.duration);
+            this.timerScale = 1-this.timerAnimationProgress/this.duration;
             if(this.timerAnimationProgress == this.duration) {
                 this.close();
                 this.timerCurrentAnimation = 0;
