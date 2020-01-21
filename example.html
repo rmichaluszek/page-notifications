@@ -9,12 +9,12 @@
         <button onclick="pushInfo()">Info</button></br>
         <button onclick="pushSuccess()">Success</button></br>
         <button onclick="pushWarning()">Warning</button></br>
-        <button onclick="pushError()">Error</button></br>
+        <button onclick="pushError()">ErrorWarning</button></br>
         <button onclick="closeAll()">Close all</button></br>
     </body>
 
     <script>
-    var notifications = new PageNotifications()
+    var notifications = new PageNotifications({width:360,position:'top-right'})
 
     function pushInfo() {
         notifications.push("Information notification","Longer information notification.</br> ... </br> ... </br> ...","info",false);

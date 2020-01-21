@@ -1,12 +1,28 @@
-/*version 1.0.2*/
-function PageNotifications(args = {width:360}) {
-    //constructor
+/*version 1.0.3*/
+
+//constructor
+function PageNotifications(args = {}) {
 
     //theme
     if(args.theme=="dark") {
         this.theme = "dark";
     } else {
         this.theme = "light";
+    }
+    //position
+    switch(args.position) {
+        case 'top-left':
+            this.position = 'top-left';break;
+        case 'top-middle':
+            this.position = 'top-middle';break;
+        case 'top-right':
+            this.position = 'top-right';break;
+        case 'bottom-left':
+            this.position = 'bottom-left';break;
+        case 'bottom-middle':
+            this.position = 'bottom-middle';break;
+        default:
+            this.position = 'bottom-right';break;
     }
     //parent element
     if(args.parentDiv&&document.getElementById(args.parentDiv)) {
@@ -18,7 +34,6 @@ function PageNotifications(args = {width:360}) {
     if(args.width&&!isNaN(args.width)) {
         this.width = args.width;
     } else {
-        console.log(this.parentDiv.offsetWidth)
         this.width = this.parentDiv.offsetWidth;
     }
 
@@ -33,6 +48,7 @@ function PageNotifications(args = {width:360}) {
 
     this.container = document.createElement('div');
     this.container.id = 'page-notifications-container';
+    this.container.className = 'container-'+this.position; //apply class for positioning the containe
     this.container.style.maxWidth = this.width+"px";
     this.parentDiv.appendChild(this.container);
 
